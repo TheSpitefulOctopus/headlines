@@ -5,11 +5,13 @@
 </head>
 <body>
 	<h1>BBC Headlines</h1>
-	<b>{{ first_article.get('title') }}</b>
+	{% for article in articles %}
+	<b><a href="{{ article.link }}">{{ article.get('title') }}</a></b>
 	<br />
-	<i>{{ first_article.get('published') }}</i>
+	<i>{{ article.get('published') }}</i>
 	<br />
-	<p>{{ first_article.get('summary') }}</p>
-	<br />
+	<p>{{ article.get('summary') }}</p>
+	<hr />
+	{% endfor %}
 </body>
 </html>
